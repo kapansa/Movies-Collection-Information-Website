@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="img/icon.ico">
 </head>
@@ -13,7 +14,19 @@
 <body class="bg">
 
     <!-- Navigation bar section -->
-    <nav class="navbar nav-bgg">
+    <div class="topnav" id="myTopnav">
+        <a class="navbar-brand" href="/">
+            <img class="nav-logo" src="img/new-logo.png" alt="" width="214" height="64">
+        </a>
+        <a href="https://github.com/kapansa/Movies-Collection-Information-Website">Github</a>
+        <a href="https://www.themoviedb.org/documentation/api" target="_blank">API Documentation</a>
+        <a href="https://portfolio-website-a7a5a2.webflow.io/">About Me</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars" style="font-size: 30px;"></i>
+        </a>
+    </div>
+
+    <!-- <nav class="navbar nav-bgg">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img class="nav-logo" src="img/new-logo.png" alt="" width="214" height="64">
@@ -24,14 +37,14 @@
                 <a href="https://portfolio-website-a7a5a2.webflow.io/">About Me</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <!-- Search section -->
     <div class="input-section">
         <form class="row g-3" action="/<%= movies %>" method="post">
             <div class="col-auto">
                 <input class="search form-control" type="text" name="movie"
-                    placeholder="Search for your favourite movies and Tv shows...">
+                    placeholder="Search for your favourite movies...">
             </div>
             <div class="col-auto">
                 <input type="submit" class="submit mb-3" name="Search">
@@ -39,6 +52,16 @@
         </form>
     </div>
 
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 </body>
 
 </html>
