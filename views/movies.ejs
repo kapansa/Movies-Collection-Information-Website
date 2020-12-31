@@ -1,0 +1,57 @@
+<%- include("header") %>
+
+<!-- Movies Listed -->
+<div class="container movie-list">
+    <div class="row">
+
+        <% if(movies.length == 0){ %>
+
+        <img src="https://i.ibb.co/0Mp6Z8B/404.jpg" class="not-found" height="500px" width="300px">
+
+        <% }else{ %>
+
+        <!-- List of searched movies -->
+        <% movies.forEach((movie) => { %>
+        <div class="col-md-4">
+            <form action="/movies/<%= movie.title %>" method="POST">
+                <div class="card shadow-card" style="width: 20rem;">
+                    <% if(movie.poster_path == null){ %>
+                    <button class="btn" type="submit"
+                        name="movie_id" value=<%= movie.id %>>
+                        <img src="img/null.jpg" class="card-img-top" height="449px">
+                        <h1 class="card-title-hide"><%= movie.title %></h1>
+                    </button>
+                    <% }else { %>
+                    <button class="btn" type="submit"
+                        name="movie_id" value=<%= movie.id %>>
+                        <img src=<%= "https://image.tmdb.org/t/p/original/" + movie.poster_path %> class="card-img-top"
+                            height="449px">
+                        <h1 class="card-title-hide"><%= movie.title %></h1>
+                    </button>
+                    <% } %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= movie.title %></h5>
+                        <% if(movie.release_date != ""){ %>
+                        <p>Release Date: <%= movie.release_date %></p>
+                        <% } %>
+                        <% if(movie.popularity != ""){ %>
+                        <p>Popularity: <%= movie.popularity %></p>
+                        <% } %>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <% }); %>
+
+        <% } %>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>Made for you with ❤️ By <a href="https://github.com/kapansa">Samuel Kapansa</a></p>
+</footer>
+</body>
+
+</html>

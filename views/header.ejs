@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="https://i.ibb.co/4MM3hZm/Group.png">
+    <style>
+        .bg {
+            background-image: url('img/book.jpg');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+        
+        .card-title-hide{
+            position: absolute;
+            left: 15%;
+            right: 7%;
+            top: 33%;
+            visibility: hidden;
+            font-weight: bold;
+        }
+
+        .pressed{
+            visibility: show;
+        }
+
+        .btn-hide{
+            position: relative;
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        .nav-logo {
+            margin-top: 30px;
+        }
+
+        .nav-links a {
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            color: white;
+            text-decoration: none;
+            margin-right: 60px;
+            margin-top: 30px;
+            border-bottom-style: solid;
+            border-bottom-width: 4px;
+            border-color: rgba(0, 0, 0, 0);
+        }
+
+        footer a{
+            color: #2e2d2d;
+            text-decoration: none;
+        }
+
+        footer a:hover{
+            color: white;
+        }
+
+        .nav-links a:hover {
+            border-bottom-style: solid;
+            border-bottom-width: 4px;
+            border-color: white;
+        }
+
+        .input-section {
+            text-align: center;
+            padding-top: 27%;
+            margin-left: 15%;
+        }
+
+        form {
+            margin: 0 auto;
+        }
+
+        .search {
+            width: 956px;
+            height: 79px;
+            background: rgba(255, 255, 255, 0.71);
+            box-shadow: 0px 15px 100px rgba(0, 0, 0, 0.25);
+            border-radius: 12px;
+            border: 0px;
+            margin: 0 auto;
+            padding-left: 40px;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .submit {
+            background: #c06810;
+            border-radius: 12px;
+            width: 196px;
+            height: 79px;
+            border: 0px;
+            margin-left: 1px;
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+            color: #FFFFFF;
+        }
+
+        .submit:hover {
+            background: #915111;
+        }
+
+        .nav-bg {
+            background-image: url('../img/book.jpg');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .nav-bgg {
+            background-image: url('../img/book.jpg');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .shadow-card {
+            margin-top: 30px;
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
+
+        footer p {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            text-align: center;
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 24px;
+            color: white;
+            background: #0395AE;
+            margin-bottom: 0;
+        }
+
+        .card-img-top {
+            border-radius: 15px;
+        }
+
+        .card-img-top:hover {
+            opacity: 0.4;
+        }
+
+        .not-found {
+            text-align: center;
+            margin: 0 auto;
+            width: 50%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .movie-list {
+            margin-bottom: 50px;
+            ;
+        }
+
+        .details {
+            padding-left: 20%;
+            margin: 3% 0;
+        }
+
+        .details-content {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .details-content h1 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 71px;
+            line-height: 87px;
+            color: #3A3A3A;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .details-content-detail h1 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 26px;
+            line-height: 87px;
+            color: #3A3A3A;
+        }
+
+        .details-content h1 span {
+            font-style: normal;
+            font-weight: bold;
+            color:  rgba(58, 58, 58, 0.53);
+        }
+
+        .details-content p {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 39px;
+            color: rgba(58, 58, 58, 0.53);
+        }
+
+        .details-content p span {
+            font-style: normal;
+            font-weight: bold;
+            color: #3A3A3A;
+        }
+
+        .tag{
+            font-style: normal;
+            font-weight: bold;
+            color: #3A3A3A;
+        }
+
+        .overview {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 71px;
+            line-height: 87px;
+            color: #3A3A3A;
+            padding-top: 20px;
+        }
+
+        .overview-detail {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 87px;
+            color: #3A3A3A;
+            padding-top: 20px;
+        }
+
+        .overview-p {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 154.4%;
+            color: rgba(58, 58, 58, 0.53);
+        }
+
+        .details_image{
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- navigation section -->
+    <nav class="navbar nav-bg">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img class="nav-logo" src="https://i.ibb.co/Brmbq0p/new-logo.png" alt="Logo" width="214" height="64">
+            </a>
+            <div class="d-flex nav-links">
+                <a href="https://github.com/kapansa/Movies-Collection-Information-Website">Github</a>
+                <a href="https://www.themoviedb.org/documentation/api" target="_blank">API Documentation</a>
+                <a href="https://portfolio-website-a7a5a2.webflow.io/">About Me</a>
+            </div>
+        </div>
+    </nav>

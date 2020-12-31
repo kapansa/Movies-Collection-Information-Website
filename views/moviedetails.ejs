@@ -1,0 +1,115 @@
+<%- include("header") %>
+
+<!-- Movie Details -->
+<div class="container details">
+    <div class="row details-content">
+
+        <h1><span>Title:</span> <%= movie.title %></h1>
+        <div class="col-md-4">
+            <% if(movie.poster_path == null){ %>
+                <img class="details_image" src="https://i.ibb.co/bmrpg3L/null.jpg" alt="Picture" width="279px" height="402px">
+            <% }else{ %>
+                <img class="details_image" src=<%= "https://image.tmdb.org/t/p/original/" + movie.poster_path %>
+                alt="Picture" width="279px" height="402px">
+            <% } %>
+            
+        </div>
+
+        <div class="col-md-4">
+            <% if(movie.budget != 0){ %>
+            <p>Budget: <span> $<%= movie.budget %></span></p>
+            <% } %>
+            <% if(movie.budget != 0){ %>
+            <p>Revenue: <span> $<%= movie.revenue %></span></p>
+            <% } %>
+            <% var hr = Number(movie.runtime) / 60; %>
+            <% if(movie.runtime < 60){ %>
+            <p>Runtime: <span><%= movie.runtime %> min</span></p>
+            <% }else{ %>
+            <p>Runtime: <span><%= hr.toFixed(1) %> hrs</span></p>
+            <% } %>
+            <p>Original Language: <span><%= movie.original_language %></span></p>
+            <p>Spoken Languages:
+                <% movie.spoken_languages.forEach((item) => { %>
+                <span>
+                    <%= item.english_name %> (<%= item.iso_639_1 %>),
+                </span>
+                <% }); %>
+            </p>
+            <p>Status: <span><%= movie.status %></span></p>
+        </div>
+
+        <div class="col-md-4">
+
+            <p>Genre:
+                <% movie.genres.forEach((item) => { %>
+                <span>
+                    <%= item.name %> ,
+                </span>
+                <% }); %>
+            </p>
+            <p>Release Date: <span><%= movie.release_date %></span></p>
+            <p>Popularity: <span><%= movie.popularity %></span></p>
+            <% if(movie.vote_average != 0){ %>
+            <p>Vote Average: <span><%= movie.vote_average %></span></p>
+            <% } %>
+            <% if(movie.vote_count != 0){ %>
+            <p>Vote Count: <span><%= movie.vote_count %></span></p>
+            <% } %>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h1 class="overview">Overview</h1>
+            <p class="overview-p"><%= movie.overview %></p>
+            <p class="overview-p"><span class="tag">TagLine:</span> <%= movie.tagline %></p>
+        </div>
+
+    </div>
+
+    <div class="row details-content-detail">
+
+        <div class="col-md-12">
+            <h1 class="overview-detail">Production Companies</h1>
+            <p>
+                <% movie.production_companies.forEach((item) => { %>
+                <span>
+                    <% if(item.logo_path != null){ %>
+                    <img src=<%= "https://image.tmdb.org/t/p/original/" + item.logo_path %> alt="Logo" height="25px"
+                        width="25px">
+                    <% } %> <%= item.name %> (<%= item.origin_country %>) ,&nbsp;&nbsp;
+                </span>
+                <% }); %>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row details-content-detail">
+
+        <div class="col-md-12">
+            <h1 class="overview-detail">Production Countries</h1>
+            <p>
+                <% movie.production_countries.forEach((item) => { %>
+                <span>
+                    <%= item.name %> (<%= item.iso_3166_1 %>) ,
+                </span>
+                <% }); %>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p>Made for you with ❤️ By <a href="https://github.com/kapansa">Samuel Kapansa</a></p>
+</footer>
+
+</body>
+
+</html>
