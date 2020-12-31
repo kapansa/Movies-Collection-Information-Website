@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
-app.post("/:title", (req, res) => {
+app.post("/movie", (req, res) => {
     
     let chunks = [];
     const movie_id = req.body.movie_id;
@@ -33,7 +33,7 @@ app.get("/", (req, res) =>{
     res.render("index.ejs", {movies: "movies"});
 });
 
-app.post("/", (req, res) => {
+app.post("/movies", (req, res) => {
 
     let chunks = [];
     const movie = req.body.movie;
