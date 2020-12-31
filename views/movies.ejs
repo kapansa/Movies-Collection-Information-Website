@@ -13,7 +13,7 @@
         <!-- List of searched movies -->
         <% movies.forEach((movie) => { %>
         <div class="col-md-4">
-            <form action="/movies/<%= movie.title %>" method="POST">
+            <form action="/<%= movie.title %>" method="POST">
                 <div class="card shadow-card" style="width: 20rem;">
                     <% if(movie.poster_path == null){ %>
                     <button class="btn" type="submit"
