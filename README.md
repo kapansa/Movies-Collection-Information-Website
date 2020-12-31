@@ -7,5 +7,5 @@ The website looks like this:
 ![](public/img/cover.png)
 
 # Example Project
-See the Example Site for this Project ([Movies Collection Website](https://kapansa.github.io/)).
+See the full website and search for any movie ([Movies Collection Website](https://allmoviescollection.herokuapp.com/)).
 
