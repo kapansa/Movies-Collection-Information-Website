@@ -6,6 +6,6 @@ The website looks like this:
 
 ![](public/img/cover.png)
 
-# Example Project
+# Live Web Application
 See the full website and search for any movie ([Movies Collection Website](https://allmoviescollection.herokuapp.com/)).
 
